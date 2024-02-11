@@ -1,0 +1,3 @@
+main.plugins.fast_dictionary.enable = true
+main.plugins.fast_dictionary.wordlist_folder = "/usr/share/wordlists"
+main.plugins.fast_dictionary.time_per_wordlist = 5
