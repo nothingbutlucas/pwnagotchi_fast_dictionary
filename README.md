@@ -44,3 +44,13 @@ main.plugins.fast_dictionary.time_per_wordlist = 5 # This is the timeout between
 ```
 4. Restart your pwnagotchi (At least, the daemon): `sudo systemctl restart pwnagotchi`
 
+## Usage
+
+After properly installation the `fast_dictionary` plugin is going to execute when you capture a handshake.
+
+### See a cracked password
+
+If you succeed in cracking the password, it will leave it on the following file: `/root/handshakes/fast_dictionary_cracked.potfile`
+You could use the [display-password-plugin](https://github.com/nothingbutlucas/pwnagotchi-display-password-plugin) in order to display the password on the screen of the pwnagotchi.
+Also can be retrieved with the [telegram.py](https://github.com/wpa-2/telegram.py) bot.
+
