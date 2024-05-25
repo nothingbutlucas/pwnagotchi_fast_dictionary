@@ -85,7 +85,7 @@ class FastDictionary(plugins.Plugin):
         """Install aircrack-ng if needed and internet is available"""
         if self.needs_install:
             generate_log("Internet available. Installing aircrack-ng")
-            self.install_aircrack()
+            install_aircrack()
         return
 
     def update_face(self, agent, text):
@@ -105,7 +105,7 @@ class FastDictionary(plugins.Plugin):
         """Execution when a handshake is captured"""
         try:
             # Search all the SSID and BSSID
-            ssids, bssids = self.find_ssid_and_bssid(filename)
+            ssids, bssids = find_ssid_and_bssid(filename)
             if not ssids and not bssids:
                 generate_log(
                     f"No SSID or BSSID found, deleting pcap file {filename}"
@@ -133,7 +133,7 @@ class FastDictionary(plugins.Plugin):
                 # Try to crack the handshake
                 for bssid in bssids:
                     cracked_file = self.crack_handshake(filename, bssid, "BSSID")
-                    if self.has_cracked(cracked_file):
+                    if has_cracked(cracked_file):
                         generate_log(
                             f" Handshake for {bssid} cracked on {filename}"
                         )
@@ -143,7 +143,7 @@ class FastDictionary(plugins.Plugin):
                 if not cracked:
                     for ssid in ssids:
                         cracked_file = self.crack_handshake(filename, ssid, "SSID")
-                        if self.has_cracked(cracked_file):
+                        if has_cracked(cracked_file):
                             generate_log(
                                 f" Handshake for {ssid} cracked on {filename}"
                             )
